@@ -9,7 +9,9 @@ class TestRoman < Test::Unit::TestCase
     @converter = RomanInt.new
   end
 
-  def test_transform_all_and_back
+  def test_zero
+    assert_equal(converter.int_to_roman(0), "")
+  end
 
   def test_transform_all_and_back
     (2**8).times { |i|
