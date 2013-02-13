@@ -1,5 +1,6 @@
+$LOAD_PATH << '.' << '../'
 require 'test/unit'
-require '../convert'
+require 'convert'
 
 class TestRoman < Test::Unit::TestCase
 
