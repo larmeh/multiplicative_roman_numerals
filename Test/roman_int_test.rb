@@ -11,7 +11,7 @@ class TestRoman < Test::Unit::TestCase
 
   def test_valid_token
     # Soon.
-    random_nr = Random.rand(2**32)
+    random_nr = Random.rand(2**16)
     roman_nr = converter.int_to_roman(random_nr)
     puts "Conversion of #{random_nr} yields " + roman_nr.to_s
 
@@ -42,24 +42,24 @@ class TestRoman < Test::Unit::TestCase
   end
 
   def test_tokens_roman_int
-    assert_equal(converter.roman_to_int("I"),  1)
-    assert_equal(converter.roman_to_int("IV"), 2)
-    assert_equal(converter.roman_to_int("V"),  3)
-    assert_equal(converter.roman_to_int("IX"), 4)
-    assert_equal(converter.roman_to_int("X"),  5)
-    assert_equal(converter.roman_to_int("XL"), 6)
-    assert_equal(converter.roman_to_int("L"),  7)
-    assert_equal(converter.roman_to_int("XC"), 8)
-    assert_equal(converter.roman_to_int("C"),  9)
-    assert_equal(converter.roman_to_int("CD"),10)
-    assert_equal(converter.roman_to_int("D"), 11)
-    assert_equal(converter.roman_to_int("CM"),12)
-    assert_equal(converter.roman_to_int( "M"),13)
+    assert_equal( 1, converter.roman_to_int("I"))
+    assert_equal( 4, converter.roman_to_int("IV"))
+    assert_equal( 5, converter.roman_to_int("V"))
+    assert_equal( 9, converter.roman_to_int("IX"))
+    assert_equal(10, converter.roman_to_int("X"))
+    assert_equal(40, converter.roman_to_int("XL"))
+    assert_equal(50, converter.roman_to_int("L"))
+    assert_equal(60, converter.roman_to_int("XC"))
+    assert_equal(100, converter.roman_to_int("C"))
+    assert_equal(400, converter.roman_to_int("CD"))
+    assert_equal(500, converter.roman_to_int("D"))
+    assert_equal(900, converter.roman_to_int("CM"))
+    assert_equal(1000, converter.roman_to_int("M"))
   end
 
   # Brute force validation over your machine's MAXINT. Have fun.
   #def test_transform_all_and_back
-    #(2**8).times { |i|
+    #(2**32).times { |i|
       #assert_equal(i, converter.int_to_roman(converter.roman_to_int(i)))
     #}
   #end
