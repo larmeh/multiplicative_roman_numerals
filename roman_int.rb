@@ -9,6 +9,11 @@ class RomanInt
 
   def roman_to_int(input)
     result = 0
+    input.split("").each do 
+
+    end
+
+    return result
   end
 
   def int_to_roman(input)
