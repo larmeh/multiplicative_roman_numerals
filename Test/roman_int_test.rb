@@ -1,22 +1,25 @@
 require 'test/unit'
-require '../roman_int'
+require '../convert'
 
 class TestRoman < Test::Unit::TestCase
 
   attr_accessor :converter
 
   def setup
-    @converter = RomanInt.new
+    @converter = Convert.new
   end
 
   def test_valid_token
     random_nr = Random.rand(10000)
     roman_nr = converter.int_to_roman(random_nr)
-    puts "Conversion of #{random_nr} yields " + roman_nr.to_s
 
     # Smells, but works
     valid_token = !roman_nr.match(/[^IVXLCDM\*\s]+/i)
     assert(valid_token)
+  end
+
+  def test_roman_to_int_borders
+
   end
 
   #  def test_
@@ -24,20 +27,20 @@ class TestRoman < Test::Unit::TestCase
   # Very useful test case: This caused me to discover that one element was
   # missing from valid_numerals.
   def test_tokens_int_roman
-    assert_equal(converter.int_to_roman(0),     "")
-    assert_equal(converter.int_to_roman(1),    "I")
-    assert_equal(converter.int_to_roman(4),   "IV")
-    assert_equal(converter.int_to_roman(5),    "V")
-    assert_equal(converter.int_to_roman(9),   "IX")
-    assert_equal(converter.int_to_roman(10),   "X")
-    assert_equal(converter.int_to_roman(40),  "XL")
-    assert_equal(converter.int_to_roman(50),   "L")
-    assert_equal(converter.int_to_roman(90),  "XC")
-    assert_equal(converter.int_to_roman(100),  "C")
-    assert_equal(converter.int_to_roman(400), "CD")
-    assert_equal(converter.int_to_roman(500),  "D")
-    assert_equal(converter.int_to_roman(900), "CM")
-    assert_equal(converter.int_to_roman(1000), "M")
+    assert_equal(  "", converter.int_to_roman(0))
+    assert_equal( "I", converter.int_to_roman(1))
+    assert_equal("IV", converter.int_to_roman(4))
+    assert_equal( "V", converter.int_to_roman(5))
+    assert_equal("IX", converter.int_to_roman(9))
+    assert_equal( "X", converter.int_to_roman(10))
+    assert_equal("XL", converter.int_to_roman(40))
+    assert_equal( "L", converter.int_to_roman(50))
+    assert_equal("XC", converter.int_to_roman(90))
+    assert_equal( "C", converter.int_to_roman(100))
+    assert_equal("CD", converter.int_to_roman(400))
+    assert_equal( "D", converter.int_to_roman(500))
+    assert_equal("CM", converter.int_to_roman(900))
+    assert_equal( "M", converter.int_to_roman(1000))
   end
 
   def test_tokens_roman_int
@@ -56,15 +59,15 @@ class TestRoman < Test::Unit::TestCase
     assert_equal(1000, converter.roman_to_int("M"))
   end
 
-  def test_sanity_roman_int_roman
-    assert_equal("MMXIII",
-                 converter.int_to_roman(converter.roman_to_int("MMXIII")))
-  end
+  #def test_sanity_roman_int_roman
+    #assert_equal("MMXIII",
+                 #converter.int_to_roman(converter.roman_to_int("MMXIII")))
+  #end
 
-  def test_sanity_int_roman_int
-    nr = 2013
+  #def test_sanity_int_roman_int
+    #nr = 2013
 
-    assert_equal(nr,
-                 converter.roman_to_int(converter.int_to_roman(nr)))
-  end
+    #assert_equal(nr,
+                 #converter.roman_to_int(converter.int_to_roman(nr)))
+  #end
 end
