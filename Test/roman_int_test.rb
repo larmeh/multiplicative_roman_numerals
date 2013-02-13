@@ -10,8 +10,7 @@ class TestRoman < Test::Unit::TestCase
   end
 
   def test_valid_token
-    # Soon.
-    random_nr = Random.rand(2**16)
+    random_nr = Random.rand(10000)
     roman_nr = converter.int_to_roman(random_nr)
     puts "Conversion of #{random_nr} yields " + roman_nr.to_s
 
@@ -20,7 +19,7 @@ class TestRoman < Test::Unit::TestCase
     assert(valid_token, "Non-roman number generated!")
   end
 
-#  def test_
+  #  def test_
 
   # Very useful test case: This caused me to discover that one element was
   # missing from valid_numerals.
@@ -57,10 +56,15 @@ class TestRoman < Test::Unit::TestCase
     assert_equal(1000, converter.roman_to_int("M"))
   end
 
-  # Brute force validation over your machine's MAXINT. Have fun.
-  #def test_transform_all_and_back
-    #(2**32).times { |i|
-      #assert_equal(i, converter.int_to_roman(converter.roman_to_int(i)))
-    #}
-  #end
+  def test_sanity_roman_int_roman
+    assert_equal("MMXIII",
+                 converter.int_to_roman(converter.roman_to_int("MMXIII")))
+  end
+
+  def test_sanity_int_roman_int
+    nr = 2013
+
+    assert_equal(nr,
+                 converter.roman_to_int(converter.int_to_roman(nr)))
+  end
 end
