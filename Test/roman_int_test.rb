@@ -16,7 +16,7 @@ class TestRoman < Test::Unit::TestCase
 
     # Smells, but works
     valid_token = !roman_nr.match(/[^IVXLCDM\*\s]+/i)
-    assert(valid_token, "Non-roman number generated!")
+    assert(valid_token)
   end
 
   #  def test_

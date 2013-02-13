@@ -9,11 +9,14 @@ class RomanInt
 
   def roman_to_int(input)
     result = 0
-    input.split("").each do 
+    inputArr = input.split("")
 
+    inputArr.each do |i|
+      #if 
+      result += @terminals[input[i]]
     end
 
-    return result
+    result
   end
 
   def int_to_roman(input)
