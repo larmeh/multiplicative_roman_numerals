@@ -59,15 +59,15 @@ class TestRoman < Test::Unit::TestCase
     assert_equal(1000, converter.roman_to_int("M"))
   end
 
-  #def test_sanity_roman_int_roman
-    #assert_equal("MMXIII",
-                 #converter.int_to_roman(converter.roman_to_int("MMXIII")))
-  #end
+  def test_sanity_roman_int_roman
+    assert_equal("MMXIII",
+                 converter.int_to_roman(converter.roman_to_int("MMXIII")))
+  end
 
-  #def test_sanity_int_roman_int
-    #nr = 2013
+  def test_sanity_int_roman_int
+    nr = 2013
 
-    #assert_equal(nr,
-                 #converter.roman_to_int(converter.int_to_roman(nr)))
-  #end
+    assert_equal(nr,
+                 converter.roman_to_int(converter.int_to_roman(nr)))
+  end
 end

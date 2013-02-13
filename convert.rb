@@ -11,21 +11,21 @@ class Convert
     result = 0
     inputArr = input.split("")
 
-    inputArr.each_with_index { |val, i|
+    inputArr.each_with_index do |val, i|
       if inputArr.length > i
-        lookahead = input[i+1]
-        #lookahead = ""
+        #lookahead = input[i+1]
+        lookahead = ""
       else
         lookahead = ""
       end
 
-      concat = val# + lookahead
+      concat = val + lookahead
       if @terminals[concat] != nil
         result += @terminals[concat]
       else
         result += @terminals[val]
       end
-    }
+    end
 
     result
   end
