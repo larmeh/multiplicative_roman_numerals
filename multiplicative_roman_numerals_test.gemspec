@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["bentz, larmeh"]
   s.email       = 'larmeh@tzi.de'
   s.files       = ["lib/multiplicative_roman_numerals.rb",
-                   "Tests/multiplicative_roman_numerals"]
+                   "Tests/multiplicative_roman_numerals_tests.rb"]
   s.homepage    =
     'http://rubygems.org/gems/multiplicative_roman_numerals'
 end
