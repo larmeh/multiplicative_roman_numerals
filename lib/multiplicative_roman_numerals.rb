@@ -1,4 +1,4 @@
-class Convert
+class MultRomanNum
   attr_reader :terminals, :special
 
   def initialize
@@ -6,7 +6,7 @@ class Convert
       ["IX" ,  9], ["IV" ,  4]]
     @terminals = [["M" ,  1000], ["D" ,  500], ["C" ,  100], ["L" ,  50],
       ["X" ,  10], ["V" ,  5], ["I" ,  1]]
-    @multiplier = [["*M " ,  1000]]
+    @multiplier = [["* " ,  0]]
     @lang = @terminals.concat(@special).sort{ |x,y|
       y[1] <=> x[1]
     }

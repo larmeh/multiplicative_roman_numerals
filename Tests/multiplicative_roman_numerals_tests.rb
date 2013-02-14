@@ -1,13 +1,13 @@
-$LOAD_PATH << '.' << '../'
+$LOAD_PATH << '.' << '../' << 'lib/'
 require 'test/unit'
-require 'convert'
+require 'multiplicative_roman_numerals'
 
-class TestRoman < Test::Unit::TestCase
+class MultRomanNumTests < Test::Unit::TestCase
 
   attr_accessor :converter
 
   def setup
-    @converter = Convert.new
+    @converter = MultRomanNum.new
   end
 
   def test_valid_token
